@@ -75,8 +75,8 @@ type MiniApp struct {
 
 func init() {
 	var err error
-	clienthelpers.EnvPrefix = "BLOG"
-	DefaultNodeHome, err = clienthelpers.GetNodeHomeDirectory(".blogd")
+	clienthelpers.EnvPrefix = "BVCHAIN"
+	DefaultNodeHome, err = clienthelpers.GetNodeHomeDirectory(".bvchaind")
 	if err != nil {
 		panic(err)
 	}

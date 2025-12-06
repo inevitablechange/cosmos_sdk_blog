@@ -1,4 +1,4 @@
-module blockchainvalley.io/bgchain
+module blockchainvalley.io/bvchain
 
 go 1.23
 

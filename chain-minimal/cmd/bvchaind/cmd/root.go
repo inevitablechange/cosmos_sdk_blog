@@ -22,10 +22,10 @@ import (
 	authtxconfig "github.com/cosmos/cosmos-sdk/x/auth/tx/config"
 	"github.com/cosmos/cosmos-sdk/x/auth/types"
 
-	"blockchainvalley.io/bgchain/app"
+	"blockchainvalley.io/bvchain/app"
 )
 
-// NewRootCmd creates a new root command for blogd. It is called once in the
+// NewRootCmd creates a new root command for bvchaind. It is called once in the
 // main function.
 func NewRootCmd() *cobra.Command {
 	var (
@@ -51,8 +51,8 @@ func NewRootCmd() *cobra.Command {
 	}
 
 	rootCmd := &cobra.Command{
-		Use:   "blogd",
-		Short: "blogd - the minimal chain app",
+		Use:   "bvchaind",
+		Short: "bvchaind - the minimal chain app",
 		PersistentPreRunE: func(cmd *cobra.Command, _ []string) error {
 			// set the default command outputs
 			cmd.SetOut(cmd.OutOrStdout())
@@ -75,7 +75,7 @@ func NewRootCmd() *cobra.Command {
 
 			// overwrite the minimum gas price from the app configuration
 			srvCfg := serverconfig.DefaultConfig()
-			srvCfg.MinGasPrices = "0blog"
+			srvCfg.MinGasPrices = "0ubvt"
 
 			// overwrite the block timeout
 			cmtCfg := cmtcfg.DefaultConfig()
@@ -108,7 +108,7 @@ func ProvideClientContext(
 		WithInput(os.Stdin).
 		WithAccountRetriever(types.AccountRetriever{}).
 		WithHomeDir(app.DefaultNodeHome).
-		WithViper("BLOG") // env variable prefix
+		WithViper("BVCHAIN") // env variable prefix
 
 	// Read the config again to overwrite the default values with the values from the config file
 	clientCtx, _ = config.ReadFromClientConfig(clientCtx)

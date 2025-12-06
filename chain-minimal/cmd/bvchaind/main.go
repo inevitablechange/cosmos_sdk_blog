@@ -7,9 +7,9 @@ import (
 	clienthelpers "cosmossdk.io/client/v2/helpers"
 	svrcmd "github.com/cosmos/cosmos-sdk/server/cmd"
 
-	"blockchainvalley.io/bgchain/app"
-	"blockchainvalley.io/bgchain/app/params"
-	"blockchainvalley.io/bgchain/cmd/blogd/cmd"
+	"blockchainvalley.io/bvchain/app"
+	"blockchainvalley.io/bvchain/app/params"
+	"blockchainvalley.io/bvchain/cmd/bvchaind/cmd"
 )
 
 func main() {

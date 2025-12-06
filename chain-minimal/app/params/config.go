@@ -10,12 +10,12 @@ import (
 )
 
 const (
-	CoinUnit = "blog"
+	CoinUnit = "ubvt"
 
 	DefaultBondDenom = CoinUnit
 
 	// Bech32PrefixAccAddr defines the Bech32 prefix of an account's address.
-	Bech32PrefixAccAddr = "blog"
+	Bech32PrefixAccAddr = "bvchain"
 )
 
 var (
