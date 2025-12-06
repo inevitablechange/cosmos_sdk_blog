@@ -1,0 +1,29 @@
+syntax = "proto3";
+package bvchain.blog.v1;
+
+option go_package = "blockchainvalley.io/bvchain/x/blog";
+
+import "cosmos/msg/v1/msg.proto";
+import "cosmos_proto/cosmos.proto";
+
+// Msg 서비스
+service Msg {
+  option (cosmos.msg.v1.service) = true;
+
+  // 글 생성
+  rpc CreatePost(MsgCreatePost) returns (MsgCreatePostResponse);
+}
+
+// 글 생성 요청
+message MsgCreatePost {
+  option (cosmos.msg.v1.signer) = "creator";
+
+  string creator  = 1; // tx 서명자
+  string id       = 2;
+  string title    = 3;
+  string contents = 4;
+}
+
+// 응답 (지금은 돌려줄 내용 없음)
+message MsgCreatePostResponse {}
+
