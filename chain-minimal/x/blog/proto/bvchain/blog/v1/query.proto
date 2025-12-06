@@ -1,0 +1,26 @@
+syntax = "proto3";
+package bvchain.blog.v1;
+
+option go_package = "blockchainvalley.io/bvchain/x/blog";
+
+import "google/api/annotations.proto";
+import "cosmos/query/v1/query.proto";
+import "bvchain/blog/v1/types.proto";
+
+// Query 서비스
+service Query {
+  // ID로 글 한 개 조회
+  rpc GetPost(QueryGetPostRequest) returns (QueryGetPostResponse) {
+    option (cosmos.query.v1.module_query_safe) = true;
+    option (google.api.http).get = "/bvchain/blog/v1/post/{id}";
+  }
+}
+
+message QueryGetPostRequest {
+  string id = 1;
+}
+
+message QueryGetPostResponse {
+  BlogPost post = 1;
+}
+
