@@ -3,6 +3,8 @@ module blockchainvalley.io/bvchain
 go 1.23
 
 replace (
+	blockchainvalley.io/bvchain/x/blog => ../x/blog
+
 	// Fix upstream GHSA-h395-qcrw-5vmq vulnerability.
 	// TODO Remove it: https://github.com/cosmos/cosmos-sdk/issues/10409
 	github.com/gin-gonic/gin => github.com/gin-gonic/gin v1.7.0
@@ -13,6 +15,7 @@ replace (
 require (
 	cosmossdk.io/api v0.7.6
 	cosmossdk.io/client/v2 v2.0.0-beta.6
+	cosmossdk.io/collections v0.4.0
 	cosmossdk.io/core v0.11.2
 	cosmossdk.io/depinject v1.1.0
 	cosmossdk.io/errors v1.0.1
@@ -25,13 +28,13 @@ require (
 	github.com/cosmos/cosmos-proto v1.0.0-beta.5
 	github.com/cosmos/cosmos-sdk v0.50.13
 	github.com/cosmos/gogoproto v1.7.0
+	github.com/grpc-ecosystem/grpc-gateway v1.16.0
 	github.com/spf13/cobra v1.9.1
 	github.com/spf13/viper v1.20.1
 	google.golang.org/protobuf v1.36.4
 )
 
 require (
-	cosmossdk.io/collections v0.4.0 // indirect
 	cosmossdk.io/x/tx v0.13.8 // indirect
 	filippo.io/edwards25519 v1.0.0 // indirect
 	github.com/99designs/go-keychain v0.0.0-20191008050251-8e49817e8af4 // indirect
@@ -96,7 +99,6 @@ require (
 	github.com/gorilla/mux v1.8.0 // indirect
 	github.com/gorilla/websocket v1.5.3 // indirect
 	github.com/grpc-ecosystem/go-grpc-middleware v1.4.0 // indirect
-	github.com/grpc-ecosystem/grpc-gateway v1.16.0 // indirect
 	github.com/gsterjov/go-libsecret v0.0.0-20161001094733-a6f4afe4910c // indirect
 	github.com/hashicorp/go-hclog v1.5.0 // indirect
 	github.com/hashicorp/go-immutable-radix v1.3.1 // indirect

@@ -11,6 +11,7 @@ import (
 	"cosmossdk.io/log"
 	storetypes "cosmossdk.io/store/types"
 
+	blogKeeper "blockchainvalley.io/bvchain/x/blog/keeper"
 	clienthelpers "cosmossdk.io/client/v2/helpers"
 	"github.com/cosmos/cosmos-sdk/baseapp"
 	"github.com/cosmos/cosmos-sdk/client"
@@ -30,6 +31,7 @@ import (
 	genutiltypes "github.com/cosmos/cosmos-sdk/x/genutil/types"
 	stakingkeeper "github.com/cosmos/cosmos-sdk/x/staking/keeper"
 
+	_ "blockchainvalley.io/bvchain/x/blog/module" // import for side-effects
 	appv1alpha1 "cosmossdk.io/api/cosmos/app/v1alpha1"
 	_ "cosmossdk.io/api/cosmos/tx/config/v1"          // import for side-effects
 	_ "github.com/cosmos/cosmos-sdk/x/auth"           // import for side-effects
@@ -68,6 +70,7 @@ type MiniApp struct {
 	StakingKeeper         *stakingkeeper.Keeper
 	DistrKeeper           distrkeeper.Keeper
 	ConsensusParamsKeeper consensuskeeper.Keeper
+	BlogKeeper            blogKeeper.Keeper
 
 	// simulation manager
 	sm *module.SimulationManager
@@ -128,6 +131,7 @@ func NewMiniApp(
 		&app.StakingKeeper,
 		&app.DistrKeeper,
 		&app.ConsensusParamsKeeper,
+		&app.BlogKeeper,
 	); err != nil {
 		return nil, err
 	}
