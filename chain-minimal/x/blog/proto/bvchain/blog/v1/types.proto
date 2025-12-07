@@ -5,6 +5,9 @@ option go_package = "blockchainvalley.io/bvchain/x/blog";
 import "cosmos_proto/cosmos.proto";
 import "gogoproto/gogo.proto";
 
+// Params defines the parameters of the module.
+message Params {}
+
 // 블로그 글 1개
 message BlogPost {
   string id       = 1; // post ID (키)
@@ -15,7 +18,10 @@ message BlogPost {
 
 // 제네시스 상태 (처음엔 비어 있어도 됨)
 message GenesisState {
-  repeated IndexedBlogPost indexed_blog_post_list = 1 [(gogoproto.nullable) = false];
+  // params defines all the parameters of the module.
+  Params params = 1 [ (gogoproto.nullable) = false ];
+  
+  repeated IndexedBlogPost indexed_blog_post_list = 2 [(gogoproto.nullable) = false];
 }
 
 // genesis export/import를 위해 index + value를 묶어서 들고 있는 형태
